@@ -28,7 +28,9 @@ int is_prime_test(int a, int expResult){
 
 int test_gcds(){
 	int e = 0;
+	printf("\nTesting gcd().\n");
 	//test loop condition n!=0
+	
 	printf("Testing loop condition n!=0\n");
 	e|=gcdTest(-1,0,-1); 
 	e|=gcdTest(1,0,1); 
@@ -36,8 +38,6 @@ int test_gcds(){
 	e|=gcdTest(-1,1,1); 
 	e|=gcdTest(1,1,1); 
 	e|=gcdTest(1,1,1); 
-	//test loop condition n==0
-	printf("Testing loop condition n==0\n");
 	e|=gcdTest(0,-1,1); 
 	e|=gcdTest(0,0,0); 
 	e|=gcdTest(0,1,1); 
@@ -47,10 +47,23 @@ int test_gcds(){
 }
 int test_is_primes(){
 	int e = 0;
+	//test if condition x==0
+	printf("\nTesting is_prime()\n");
+	printf("Testing if condition x==0\n");
 	e|=is_prime_test(0,0);
 	e|=is_prime_test(-1,0);
 	e|=is_prime_test(1,1);
+	//test for condition i<sqrt(x)
+	//i>sqrt(x)
+	printf("Testing for condition i<sqrt(x)\n");
+	e|=is_prime_test(2,1);
+	e|=is_prime_test(3,1);
+	e|=is_prime_test(4,0);
+	//i<sqrt(x)
 	e|=is_prime_test(5,1);
+	e|=is_prime_test(6,0);
+	e|=is_prime_test(7,1);
+	e|=is_prime_test(8,0);
 	return e;
 }
 
